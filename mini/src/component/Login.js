@@ -28,11 +28,16 @@ function Login(){
         { withCredintials: true}
         )
         .then(res => {
-            
+            if(res.data){
             setuserid(inputId);
             setIsLogin(true);
             localStorage.setItem('userid',inputId);
             navigate('/');
+            }else{
+            console.log(inputId);
+            console.log(inputPw);
+            alert('아이디와 비밀번호를 확인하세요!!');
+            }
         })
         .catch(error => {console.log(error)
             console.log(inputId);
